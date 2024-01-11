@@ -20,17 +20,21 @@ export const GlobalStyles = createGlobalStyle`
     body{
         background-color: ${({ theme }) => theme.BACKGROUND};
         color: ${({ theme }) => theme.BLUE};
+        font-size: 1.6rem;
+
 
         -webkit-font-smoothing: antialiased;
 
         overflow-x: hidden;
     }
 
-    body, input, textarea, button{
-        font-family: 'Roboto', sans-serif;
-        font-size: 1.6rem;
-        font-weight: 400;
-    } 
+    body, input, button, textarea, p{
+        font-family: 'Poppins', sans-serif;
+    }
+
+    label, input, textarea, h3{
+        font-family: "Roboto", sans-serif;
+    }
 
     a{
         text-decoration: none;

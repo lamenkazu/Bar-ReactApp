@@ -5,12 +5,11 @@ import { useState, ChangeEvent, KeyboardEvent } from "react";
 import { Container, InputWrapper } from "./styles";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
-// import { StyledLink } from "../../components/StyledLink";
 
 export const SignIn = () => {
   // const { signIn } = useAuth();
   const [form, setForm] = useState({
-    email: "",
+    cpf: "",
     password: "",
   });
 
@@ -35,7 +34,7 @@ export const SignIn = () => {
           id="cpf"
           name="cpf"
           lbl="CPF"
-          type="text"
+          type="number"
           placeholder="Somente números"
           onChange={handleFormChanges}
           onKeyPress={(e: KeyboardEvent<HTMLInputElement>) => {
@@ -59,7 +58,6 @@ export const SignIn = () => {
         />
       </InputWrapper>
       <Button title="Entrar" onClick={handleSignIn} />
-      {/* <StyledLink to="/register" title="Criar uma conta" /> */}
     </Container>
   );
 };

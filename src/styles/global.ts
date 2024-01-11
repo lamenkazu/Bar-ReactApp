@@ -50,6 +50,15 @@ export const GlobalStyles = createGlobalStyle`
         filter: brightness(0.9)
     }
 
+    input[type=number]::-webkit-inner-spin-button { 
+        -webkit-appearance: none;
+    }
+
+    input[type=number] { 
+        -moz-appearance: textfield;
+        appearance: textfield;
+    }
+
     ::-webkit-scrollbar{
         width: 0;
     }

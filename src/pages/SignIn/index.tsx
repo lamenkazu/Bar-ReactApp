@@ -1,13 +1,13 @@
-import { useState, ChangeEvent, KeyboardEvent } from "react";
+import { useState, ChangeEvent, KeyboardEvent, useEffect } from "react";
 
-// import { useAuth } from "../../hooks/auth";
+import { useAuth } from "../../hooks/auth";
 
 import { Container, InputWrapper } from "./styles";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 
 export const SignIn = () => {
-  // const { signIn } = useAuth();
+  const { signIn } = useAuth();
   const [form, setForm] = useState({
     cpf: "",
     password: "",
@@ -21,8 +21,7 @@ export const SignIn = () => {
   };
 
   const handleSignIn = () => {
-    console.log(form);
-    // signIn({ email: form.email, password: form.password });
+    signIn({ cpf: form.cpf, password: form.password });
   };
 
   return (
@@ -34,7 +33,7 @@ export const SignIn = () => {
           id="cpf"
           name="cpf"
           lbl="CPF"
-          type="number"
+          type="text"
           placeholder="Somente números"
           onChange={handleFormChanges}
           onKeyPress={(e: KeyboardEvent<HTMLInputElement>) => {

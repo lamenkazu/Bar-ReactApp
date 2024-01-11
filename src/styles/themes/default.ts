@@ -6,7 +6,7 @@ export const defaultTheme = {
   WHITE: "#FFF",
   BLUE: "#0e3467",
   BROWN: "#6e5b42",
-  BROWN_DISABLED: "#rgba(110, 91, 66, .6)",
+  BROWN_DISABLED: "#rgba(110, 91, 66, .5)",
   ORANGE: "#f9a54a",
 
   GRAY_100: "#E0E0E0",

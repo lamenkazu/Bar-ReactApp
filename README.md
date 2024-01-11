@@ -1,6 +1,6 @@
 # Telas
 
-- [ ] Tela de Login
+- [x] Tela de Login
 
 - [ ] Tela Principal
   - [ ] Menu Lateral

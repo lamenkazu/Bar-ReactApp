@@ -19,8 +19,18 @@ import {
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 const useAuth = () => useContext(AuthContext);
 
+const emptyUser: UserProps = {
+  id: "",
+  name: "",
+  cpf: "",
+  password: "",
+  role: "",
+  createdAt: "",
+  updatedAt: "",
+};
+
 const AuthProvider = ({ children }: PropsWithChildren) => {
-  const [data, setData] = useState<UserProps>({} as UserProps);
+  const [data, setData] = useState<UserProps>(emptyUser);
   const [loading, setLoading] = useState(true);
 
   const signIn = useCallback(async ({ cpf, password }: SignInProps) => {
@@ -59,7 +69,7 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
   const signOut = useCallback(() => {
     localStorage.removeItem("@bar-valadares:user");
 
-    setData({} as UserProps);
+    setData(emptyUser);
   }, []);
 
   useEffect(() => {

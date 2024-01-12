@@ -6,7 +6,7 @@ export const Container = styled.div`
   align-items: center;
   cursor: pointer;
 
-  position: fixed;
+  position: absolute;
   left: 0;
   padding-left: 11.4rem;
 

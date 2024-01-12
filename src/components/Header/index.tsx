@@ -56,9 +56,9 @@ export const Header = () => {
   return (
     <Container>
       {sideBar && (
-        <SideBar>
+        <SideBar onClick={handleSideBar}>
           <Title>
-            <IoCloseOutline onClick={handleSideBar} />
+            <IoCloseOutline />
             <h3>Menu</h3>
           </Title>
 

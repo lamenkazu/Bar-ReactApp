@@ -15,9 +15,9 @@
 
 ## Produtos
 
-- [ ] Admin
-  - [ ] Novo Produto;
-  - [ ] Editar/Excluir Produto;
+- [x] Admin
+  - [x] Novo Produto;
+  - [x] Editar/Excluir Produto;
 -
 
 - [ ] Common

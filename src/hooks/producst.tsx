@@ -31,7 +31,39 @@ const ProductsProvider = ({ children }: PropsWithChildren) => {
       if (err.response) {
         alert(err.response.data.message);
       } else {
-        alert("Não foi possível criar um novo prato no banco de dados.");
+        alert("Não foi possível criar um novo produto no banco de dados.");
+      }
+    }
+  }, []);
+
+  const getProductById = useCallback(async (id: string) => {
+    try {
+      if (loading) return;
+
+      const response = await api.get(`/products/${id}`);
+
+      return response.data;
+    } catch (err: any) {
+      if (err.response) {
+        alert(err.response.data.message);
+      } else {
+        alert("Não foi possível acessar os dados desse produto.");
+      }
+    }
+  }, []);
+
+  const deleteProduct = useCallback(async (id: string) => {
+    try {
+      if (loading) return;
+
+      return await api.delete(`/products/admin/${id}`).then(() => {
+        alert("Produto removido com sucesso.");
+      });
+    } catch (err: any) {
+      if (err.response) {
+        alert(err.response.data.message);
+      } else {
+        alert("Não foi possível deletar o prato do banco de dados.");
       }
     }
   }, []);
@@ -39,8 +71,10 @@ const ProductsProvider = ({ children }: PropsWithChildren) => {
   const productsDataValue = useMemo(
     () => ({
       createNewProduct,
+      getProductById,
+      deleteProduct,
     }),
-    [createNewProduct]
+    [createNewProduct, getProductById, deleteProduct]
   );
 
   return (

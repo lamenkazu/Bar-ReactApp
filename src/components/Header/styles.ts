@@ -5,7 +5,7 @@ import { Button } from "../Button";
 
 export const Container = styled.header`
   grid-area: header;
-  background-color: ${({ theme }) => theme.BROWN};
+  background-color: ${({ theme }) => theme.BLUE};
 
   padding: 6.4rem 2.8rem 3.2rem;
 
@@ -48,7 +48,7 @@ export const StyledButton = styled(Button)`
 export const Btn = styled.button`
   display: flex;
   border: none;
-  background-color: ${({ theme }) => theme.BLUE};
+  background-color: ${({ theme }) => theme.WHITE};
   border-radius: 0.8rem;
 
   margin-top: 3.4rem;
@@ -88,6 +88,7 @@ export const Menu = styled.button`
 
   > svg {
     font-size: 2.5rem;
+    color: ${({ theme }) => theme.BACKGROUND};
   }
 `;
 
@@ -126,7 +127,7 @@ export const SideBar = styled.div`
   left: 0;
   padding: 6.4rem 2.8rem 3.2rem;
   z-index: 1;
-  width: 20%;
+  width: 25%;
   background-color: ${({ theme }) => theme.GRAY_100};
 `;
 
@@ -135,7 +136,7 @@ export const Title = styled.div`
   align-items: center;
   gap: 1.6rem;
 
-  width: 100vw;
+  height: 100%;
 
   > h3 {
     font-size: 2.1rem;
@@ -156,7 +157,7 @@ export const Content = styled.div`
   z-index: 1;
   left: 0;
   top: 9.6rem;
-  width: 20%;
+  width: 25%;
 `;
 
 export const SideBarItem = styled.div`
@@ -174,6 +175,8 @@ export const SignOut = styled.div`
   display: flex;
   flex-direction: column;
   align-items: end;
+
+  color: ${({ theme }) => theme.ORANGE};
 
   > svg {
     font-size: 2.4rem;

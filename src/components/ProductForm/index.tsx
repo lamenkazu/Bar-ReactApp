@@ -17,23 +17,15 @@ import { Select } from "../../components/Select";
 
 import { PiCaretLeft } from "react-icons/pi";
 import { useProducts } from "../../hooks/producst";
-
-interface ProductProps {
-  id: string;
-  name: string;
-  price: string;
-  category: string;
-  createdBy: string;
-  createdAt: string;
-  updatedBy: string;
-  updatedAt: string;
-}
+import { ProductProps } from "../../@types/products";
+import { Empty } from "../Empty";
 
 interface ProductsFormProps {
   confirmMessage?: string;
   pageTitle?: string;
   isNew?: boolean;
   productData?: ProductProps;
+  productId?: string;
 }
 
 export const ProductForm = ({
@@ -45,33 +37,24 @@ export const ProductForm = ({
     name: "",
     price: "",
     category: "",
-    createdBy: "",
-    createdAt: "",
-    updatedBy: "",
-    updatedAt: "",
+    created_by: "",
+    updated_by: "",
   },
 }: ProductsFormProps) => {
   const navigate = useNavigate();
 
-  const { createNewProduct } = useProducts();
+  const { createNewProduct, deleteProduct } = useProducts();
 
   const [form, setForm] = useState<ProductProps>(productData);
-  const {
-    id,
-    name,
-    price,
-    category,
-    createdBy,
-    createdAt,
-    updatedAt,
-    updatedBy,
-  } = form;
+  const { id, name, price, category, created_by, updated_by } = form;
 
   const isFormEmpty = () => {
     return !name || !category || !price;
   };
 
-  const handleFormChanges = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleFormChanges = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -98,7 +81,14 @@ export const ProductForm = ({
     console.log(form);
   };
 
-  const handleDeleteProduct = async () => {};
+  const handleDeleteProduct = async () => {
+    if (
+      confirm("Tem certeza que deseja remover este produto permanentemente?")
+    ) {
+      await deleteProduct(id);
+      navigate("/produtos");
+    }
+  };
 
   const decideSave = isNew ? handleCreate : handleUpdate;
 
@@ -174,6 +164,7 @@ export const ProductForm = ({
               onClick={handleDeleteProduct}
             />
           )}
+          <Empty />
           <StyledButton
             loading={isFormEmpty()}
             title="Salvar alterações"

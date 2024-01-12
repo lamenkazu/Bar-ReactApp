@@ -20,7 +20,7 @@ import {
 } from "./styles";
 
 import { IoMenu, IoCloseOutline } from "react-icons/io5";
-import { PiReceiptLight, PiMagnifyingGlassThin } from "react-icons/pi";
+// import { PiReceiptLight, PiMagnifyingGlassThin } from "react-icons/pi";
 import { GoSignOut } from "react-icons/go";
 import { USER_ROLE } from "./../../utils/roles";
 
@@ -48,6 +48,11 @@ export const Header = () => {
     setSideBar(false);
   };
 
+  const handleProductsPage = () => {
+    navigate("/produtos");
+    setSideBar(false);
+  };
+
   return (
     <Container>
       {sideBar && (
@@ -60,7 +65,7 @@ export const Header = () => {
           <Content>
             {[USER_ROLE.COMMON, USER_ROLE.ADMIN].includes(user.role) && (
               <>
-                <SideBarItem onClick={handleFavoriteList}>Produtos</SideBarItem>
+                <SideBarItem onClick={handleProductsPage}>Produtos</SideBarItem>
                 <SideBarItem onClick={handleFavoriteList}>
                   Relatorios
                 </SideBarItem>
@@ -70,6 +75,9 @@ export const Header = () => {
               <>
                 <SideBarItem onClick={handleNewDish}>Estoque</SideBarItem>
                 <SideBarItem onClick={handleNewDish}>Vendas</SideBarItem>
+                <SideBarItem onClick={handleNewDish}>
+                  Cadastrar Funcionario
+                </SideBarItem>
               </>
             )}
           </Content>

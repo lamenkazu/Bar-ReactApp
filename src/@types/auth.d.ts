@@ -25,4 +25,5 @@ interface AuthContextData {
   signUp: (credentials: SignUpProps) => void;
   signOut: () => void;
   user: UserProps;
+  loading: boolean;
 }

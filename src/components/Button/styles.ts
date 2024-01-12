@@ -7,7 +7,7 @@ interface ContraProps {
 export const Container = styled.button<ContraProps>`
   width: 100%;
   background-color: ${({ theme, $contra }) =>
-    $contra ? theme.DARK_800 : theme.ORANGE};
+    $contra ? theme.BROWN : theme.ORANGE};
 
   display: flex;
   justify-content: center;
@@ -35,6 +35,10 @@ export const Container = styled.button<ContraProps>`
 
   &:disabled {
     opacity: 0.8;
-    background-color: ${({ theme }) => theme.BROWN_DISABLED};
+    background-color: ${({ theme }) => theme.ORANGE_DISABLED};
+
+    > p {
+      color: ${({ theme }) => theme.BACKGROUND_2};
+    }
   }
 `;

@@ -8,7 +8,7 @@
     - [ ] Opção Vendas
     - [ ] Opção Produtos
     - [ ] Opção Relatórios
-  - [ ] Header
+  - [x] Header
   - [ ] Footer
 
 # Paginas

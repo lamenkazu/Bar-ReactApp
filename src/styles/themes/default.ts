@@ -6,8 +6,9 @@ export const defaultTheme = {
   WHITE: "#FFF",
   BLUE: "#0e3467",
   BROWN: "#6e5b42",
-  BROWN_DISABLED: "#rgba(110, 91, 66, .5)",
+  BROWN_DISABLED: "rgba(110, 91, 66, .5)",
   ORANGE: "#f9a54a",
+  ORANGE_DISABLED: "rgba(249, 165, 74, .5)",
 
   GRAY_100: "#E0E0E0",
   GRAY_200: "#9E9E9E",

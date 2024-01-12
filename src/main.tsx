@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import { ThemeProvider } from "styled-components";
 import { AuthProvider } from "./hooks/auth";
+import { ProductsProvider } from "./hooks/producst";
 
 import { defaultTheme } from "./styles/themes/default";
 import { GlobalStyles } from "./styles/global";
@@ -13,7 +14,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyles />
       <AuthProvider>
-        <Routes />
+        <ProductsProvider>
+          <Routes />
+        </ProductsProvider>
       </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>

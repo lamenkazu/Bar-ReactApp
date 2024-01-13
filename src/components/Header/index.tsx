@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/auth";
 
@@ -29,6 +29,8 @@ export const Header = () => {
   const { user, signOut } = useAuth();
   const [sideBar, setSideBar] = useState(false);
 
+  const sidebarRef = useRef<HTMLDivElement>(null);
+
   const handleSideBar = () => setSideBar(!sideBar);
 
   const handleSignOut = () => {
@@ -53,10 +55,26 @@ export const Header = () => {
     setSideBar(false);
   };
 
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node)
+      ) {
+        setSideBar(false);
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [sidebarRef]);
+
   return (
     <Container>
       {sideBar && (
-        <SideBar onClick={handleSideBar}>
+        <SideBar ref={sidebarRef} onClick={handleSideBar}>
           <Title>
             <IoCloseOutline />
             <h3>Menu</h3>

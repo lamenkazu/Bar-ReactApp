@@ -10,6 +10,8 @@ export const defaultTheme = {
   ORANGE: "#f9a54a",
   ORANGE_DISABLED: "rgba(249, 165, 74, .5)",
 
+  TOMATO: "#C0051A",
+
   GRAY_100: "#E0E0E0",
   GRAY_200: "#9E9E9E",
   GRAY_300: "#757575",

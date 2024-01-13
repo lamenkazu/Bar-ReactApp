@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 import { Button } from "../Button";
 
-export const Container = styled.div`
+export const Container = styled.main`
   grid-area: content;
 
   padding: 1rem 3.2rem 5.2rem;

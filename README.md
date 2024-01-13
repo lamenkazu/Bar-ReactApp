@@ -21,7 +21,7 @@
 -
 
 - [ ] Common
-  - [ ] Listar todos os produtos
+  - [x] Listar todos os produtos
   - [ ] Informações detalhadas sobre um produto
 
 ## Cadastro

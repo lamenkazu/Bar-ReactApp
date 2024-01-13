@@ -103,7 +103,7 @@ export const Header = () => {
       )}
 
       <Menu>
-        <IoMenu onClick={handleSideBar} />
+        <IoMenu size={32} onClick={handleSideBar} />
       </Menu>
 
       <StyledLink to="/">

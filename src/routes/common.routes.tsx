@@ -3,13 +3,15 @@ import { Routes, Route } from "react-router-dom";
 import { AppLayout } from "../layouts/AppLayout";
 
 import { NotFound } from "../pages/NotFound";
+import { ListProducts } from "../pages/ListProducts";
+import { ViewProduct } from "../pages/ViewProduct";
 
 export function CommonRoutes() {
   return (
     <Routes>
       <Route path="/" element={<AppLayout />}>
-        <Route path="/produtos" element={<h1>Lista de Produtos</h1>} />
-        <Route path="/produtos/detalhes/:id" element={<h1>Detalhes prod</h1>} />
+        <Route path="/produtos" element={<ListProducts />} />
+        <Route path="/produtos/visualizar/:id" element={<ViewProduct />} />
       </Route>
 
       <Route path="*" element={<NotFound />} />

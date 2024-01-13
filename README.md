@@ -3,11 +3,11 @@
 - [x] Tela de Login
 
 - [ ] Tela Principal
-  - [ ] Menu Lateral
-    - [ ] Opção Estoque
-    - [ ] Opção Vendas
-    - [ ] Opção Produtos
-    - [ ] Opção Relatórios
+  - [x] Menu Lateral
+    - [x] Opção Estoque
+    - [x] Opção Vendas
+    - [x] Opção Produtos
+    - [x] Opção Relatórios
   - [x] Header
   - [ ] Footer
 
@@ -20,9 +20,9 @@
   - [x] Editar/Excluir Produto;
 -
 
-- [ ] Common
+- [x] Common
   - [x] Listar todos os produtos
-  - [ ] Informações detalhadas sobre um produto
+  - [x] Informações detalhadas sobre um produto
 
 ## Cadastro
 

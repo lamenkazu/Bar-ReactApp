@@ -17,7 +17,7 @@ export const InputWrapper = styled.section`
   gap: 2.4rem;
   padding: 1rem 3.2rem 5.2rem;
 
-  background-color: ${({ theme }) => theme.WHITE};
+  background-color: ${({ theme }) => theme.LIGHT_400};
   border-radius: 0.8rem;
 
   height: fit-content;
@@ -26,7 +26,8 @@ export const InputWrapper = styled.section`
 
   > div {
     input {
-      background-color: ${({ theme }) => theme.BACKGROUND};
+      background-color: ${({ theme }) => theme.LIGHT_800};
+      height: 4.3rem;
     }
   }
 

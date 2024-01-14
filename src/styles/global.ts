@@ -18,8 +18,8 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body{
-        background-color: ${({ theme }) => theme.BACKGROUND};
-        color: ${({ theme }) => theme.BLUE};
+        background-color: ${({ theme }) => theme.LIGHT_1000};
+        color: ${({ theme }) => theme.DARK_100};
         font-size: 1.6rem;
 
 

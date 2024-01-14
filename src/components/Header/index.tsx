@@ -76,7 +76,6 @@ export const Header = () => {
       {sideBar && (
         <SideBar ref={sidebarRef} onClick={handleSideBar}>
           <Title>
-            <IoCloseOutline />
             <h3>Menu</h3>
           </Title>
 

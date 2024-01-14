@@ -7,7 +7,7 @@ interface ContraProps {
 export const Container = styled.button<ContraProps>`
   width: 100%;
   background-color: ${({ theme, $contra }) =>
-    $contra ? theme.BROWN : theme.ORANGE};
+    $contra ? theme.TOMATO : theme.ORANGE};
 
   display: flex;
   justify-content: center;
@@ -18,7 +18,7 @@ export const Container = styled.button<ContraProps>`
     font-weight: 500;
     line-height: 24px; /* 171.429% */
 
-    color: ${({ theme }) => theme.BLACK};
+    color: ${({ theme, $contra }) => ($contra ? theme.LIGHT_100 : theme.BLACK)};
   }
 
   height: 5.6rem;

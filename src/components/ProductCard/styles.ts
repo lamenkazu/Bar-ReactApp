@@ -11,7 +11,7 @@ export const Container = styled.div`
 
   padding: 1rem 3rem 1rem;
 
-  background-color: ${({ theme }) => theme.BACKGROUND_2};
+  background-color: ${({ theme }) => theme.LIGHT_300};
 
   justify-content: space-between;
 
@@ -29,7 +29,7 @@ export const H2 = styled.h2`
   font-size: 1.4rem;
   font-weight: 500;
   line-height: 24px; /* 171.429% */
-  color: ${({ theme }) => theme.BROWN};
+  color: ${({ theme }) => theme.DARK_300};
 
   font-size: 2.4rem;
   font-style: normal;
@@ -43,14 +43,14 @@ export const P = styled.h2`
   font-style: normal;
   font-weight: bold;
   line-height: 160%; /* 22.4px */
-  color: ${({ theme }) => theme.ORANGE};
+  color: ${({ theme }) => theme.DARK_500};
 `;
 
 export const Span = styled.span`
   font-style: normal;
   font-weight: 400;
   line-height: 100%;
-  color: ${({ theme }) => theme.BLUE};
+  color: ${({ theme }) => theme.BRIGHT_BROWN};
 
   font-size: 3rem;
   line-height: 160%;

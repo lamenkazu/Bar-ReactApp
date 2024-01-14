@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import { AppLayout } from "../layouts/AppLayout";
 
@@ -12,6 +12,8 @@ export function AdminRoutes() {
   return (
     <Routes>
       <Route path="/" element={<AppLayout />}>
+        <Route path="/" element={<Navigate to="/vendas" replace />} />
+
         {/* Products */}
         <Route path="/produtos" element={<ListProducts />} />
         <Route path="/produtos/novo" element={<NewProduct />} />

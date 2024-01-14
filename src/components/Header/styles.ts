@@ -5,7 +5,10 @@ import { Button } from "../Button";
 
 export const Container = styled.header`
   grid-area: header;
-  background-color: ${({ theme }) => theme.BLUE};
+  background-color: ${({ theme }) => theme.LIGHT_300};
+
+  border-end-end-radius: 2rem;
+  border-bottom-left-radius: 2rem;
 
   padding: 6.4rem 2.8rem 3.2rem;
 
@@ -48,7 +51,7 @@ export const StyledButton = styled(Button)`
 export const Btn = styled.button`
   display: flex;
   border: none;
-  background-color: ${({ theme }) => theme.WHITE};
+  background-color: ${({ theme }) => theme.TOMATO};
   border-radius: 0.8rem;
 
   margin-top: 3.4rem;
@@ -66,7 +69,7 @@ export const StyledLink = styled(Link)`
   gap: 0.8rem;
   align-items: flex-end;
   > p {
-    color: ${({ theme }) => theme.ORANGE};
+    color: ${({ theme }) => theme.LIGHT_BLUE};
     font-size: 1.2rem;
     line-height: 160%; /* 19.2px */
   }
@@ -88,7 +91,6 @@ export const Menu = styled.button`
 
   > svg {
     font-size: 2.5rem;
-    color: ${({ theme }) => theme.BACKGROUND};
   }
 `;
 
@@ -127,8 +129,8 @@ export const SideBar = styled.div`
   left: 0;
   padding: 6.4rem 2.8rem 3.2rem;
   z-index: 1;
-  width: 25%;
-  background-color: ${({ theme }) => theme.GRAY_100};
+  width: 27%;
+  background-color: ${({ theme }) => theme.LIGHT_1000};
 `;
 
 export const Title = styled.div`
@@ -139,34 +141,34 @@ export const Title = styled.div`
   height: 100%;
 
   > h3 {
-    font-size: 2.1rem;
+    font-size: 3rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
   }
 
   > svg {
-    font-size: 2.5rem;
+    font-size: 3.4rem;
     cursor: pointer;
   }
 `;
 export const Content = styled.div`
-  background-color: ${({ theme }) => theme.BROWN};
+  background-color: ${({ theme }) => theme.LIGHT_300};
   height: 100%;
   position: fixed;
   z-index: 1;
   left: 0;
   top: 9.6rem;
-  width: 25%;
+  width: 27%;
 `;
 
 export const SideBarItem = styled.div`
   margin-top: 3.6rem;
   margin-inline: 2.8rem;
   padding: 1rem;
-  border-bottom: 1px solid ${({ theme }) => theme.BLUE};
+  border-bottom: 1px solid ${({ theme }) => theme.DARK_700};
 
-  color: ${({ theme }) => theme.WHITE};
+  font-size: 1.8rem;
 
   cursor: pointer;
 `;
@@ -175,8 +177,6 @@ export const SignOut = styled.div`
   display: flex;
   flex-direction: column;
   align-items: end;
-
-  color: ${({ theme }) => theme.ORANGE};
 
   > svg {
     font-size: 2.4rem;

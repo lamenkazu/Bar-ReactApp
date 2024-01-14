@@ -64,10 +64,10 @@ export const Header = () => {
         setSideBar(false);
       }
     };
-    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("mouseup", handleOutsideClick);
 
     return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("mouseup", handleOutsideClick);
     };
   }, [sidebarRef]);
 

@@ -12,6 +12,9 @@ export function CommonRoutes() {
       <Route path="/" element={<AppLayout />}>
         <Route path="/produtos" element={<ListProducts />} />
         <Route path="/produtos/visualizar/:id" element={<ViewProduct />} />
+
+        {/* Sales */}
+        <Route path="/vendas" element={<h1>Home de Vendas</h1>} />
       </Route>
 
       <Route path="*" element={<NotFound />} />

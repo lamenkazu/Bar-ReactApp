@@ -12,10 +12,15 @@ export function AdminRoutes() {
   return (
     <Routes>
       <Route path="/" element={<AppLayout />}>
+        {/* Products */}
         <Route path="/produtos" element={<ListProducts />} />
         <Route path="/produtos/novo" element={<NewProduct />} />
         <Route path="/produtos/editar/:id" element={<EditProduct />} />
         <Route path="/produtos/visualizar/:id" element={<ViewProduct />} />
+
+        {/* Sales */}
+        <Route path="/vendas" element={<h1>Home de Vendas</h1>} />
+        <Route path="/vendas/visualizar" element={<h1>Listar vendas</h1>} />
       </Route>
 
       <Route path="*" element={<NotFound />} />

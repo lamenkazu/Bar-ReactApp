@@ -9,10 +9,13 @@ import { GoBack } from "../../components/GoBack";
 
 import { PiCaretLeft } from "react-icons/pi";
 import { ProductProps } from "../../@types/products";
+import { USER_ROLE } from "../../utils/roles";
 
 export const ViewProduct = () => {
   const navigate = useNavigate();
   const { id } = useParams();
+
+  const { user } = useAuth();
 
   const [data, setData] = useState<ProductProps>({} as ProductProps);
 
@@ -58,7 +61,9 @@ export const ViewProduct = () => {
             </UsersInfo>
           </ContentDetails>
 
-          <StyledButton title={`Editar Prato`} onClick={goToEditPage} />
+          {[USER_ROLE.ADMIN].includes(user.role) && (
+            <StyledButton title={`Editar Prato`} onClick={goToEditPage} />
+          )}
         </div>
       </section>
     </Container>

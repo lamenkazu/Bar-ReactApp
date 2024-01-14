@@ -6,7 +6,7 @@ export function NotFound() {
     <Container>
       <h1>404!</h1>
       <h2>Página indisponível</h2>
-      <Link to="/">voltar para o início</Link>
+      <Link to="/vendas">voltar para o início</Link>
     </Container>
   );
 }

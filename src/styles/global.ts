@@ -17,6 +17,18 @@ export const GlobalStyles = createGlobalStyle`
         box-shadow: 0 0 0 .2rem ${({ theme }) => theme.GRAY_100};
     }
 
+    .srOnly{
+        position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+    }
+
     body{
         background-color: ${({ theme }) => theme.LIGHT_1000};
         color: ${({ theme }) => theme.DARK_100};
@@ -34,6 +46,12 @@ export const GlobalStyles = createGlobalStyle`
 
     label, input, textarea, h3{
         font-family: "Roboto", sans-serif;
+    }
+
+    input:focus, select:focus, button:focus{
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        outline: none;
     }
 
     a{

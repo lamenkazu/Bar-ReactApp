@@ -22,6 +22,7 @@ export const Container = styled.header`
     img {
       height: 2.4rem;
       width: 100%;
+      padding-top: 3rem;
     }
   }
 
@@ -66,7 +67,6 @@ export const Btn = styled.button`
 export const StyledLink = styled(Link)`
   text-decoration: none;
   display: flex;
-  gap: 0.8rem;
   align-items: flex-end;
   > p {
     color: ${({ theme }) => theme.LIGHT_BLUE};

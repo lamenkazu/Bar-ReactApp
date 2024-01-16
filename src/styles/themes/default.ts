@@ -30,4 +30,5 @@ export const defaultTheme = {
   DARK_500: "#838375",
   DARK_600: "#898684",
   DARK_700: "#b2a7a1",
+  DARK_800: "rgba(166, 164, 164, 0.3)",
 };

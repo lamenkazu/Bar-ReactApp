@@ -7,6 +7,7 @@ import { NewProduct } from "../pages/NewProduct";
 import { EditProduct } from "../pages/EditProduct";
 import { ListProducts } from "../pages/ListProducts";
 import { ViewProduct } from "../pages/ViewProduct";
+import { Sales } from "../pages/Sales";
 
 export function AdminRoutes() {
   return (
@@ -21,7 +22,7 @@ export function AdminRoutes() {
         <Route path="/produtos/visualizar/:id" element={<ViewProduct />} />
 
         {/* Sales */}
-        <Route path="/vendas" element={<h1>Home de Vendas</h1>} />
+        <Route path="/vendas" element={<Sales />} />
         <Route path="/vendas/visualizar" element={<h1>Listar vendas</h1>} />
       </Route>
 

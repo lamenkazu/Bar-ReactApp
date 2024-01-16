@@ -13,7 +13,7 @@ export const Container = styled.form`
   margin-inline: auto;
 
   border-radius: 1.6rem;
-  background-color: ${({ theme }) => theme.LIGHT_700};
+  background-color: ${({ theme }) => theme.LIGHT_300};
   text-align: center;
   padding: 6.4rem;
 `;

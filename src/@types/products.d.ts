@@ -3,10 +3,17 @@ export interface ProductsContextData {
   getProductById: (credentials: string) => Promise<ProdctProps>;
   deleteProduct: (credentials: string) => Promise<void>;
   getCategories: () => Promise<string[] | undefined>;
-  getProducts: () => Promise<ProductListProps | undefined>;
+  getProducts: (
+    credentials: ProductIndexSearch
+  ) => Promise<ProductListProps | undefined>;
   getProductsByCategory: (
     credentials: string
   ) => Promise<ProductListProps | undefined>;
+}
+
+export interface ProductIndexSearch {
+  name?: string;
+  category?: string;
 }
 
 export interface NewProduct {

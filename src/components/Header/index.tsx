@@ -40,18 +40,28 @@ export const Header = () => {
     }
   };
 
-  const handleNewDish = () => {
-    navigate("/new");
-    setSideBar(false);
-  };
-
-  const handleFavoriteList = () => {
-    navigate("/favorites");
+  const handleSales = () => {
+    navigate("/vendas");
     setSideBar(false);
   };
 
   const handleProductsPage = () => {
     navigate("/produtos");
+    setSideBar(false);
+  };
+
+  const handleRelatory = () => {
+    navigate("/relatorios");
+    setSideBar(false);
+  };
+
+  const handleStock = () => {
+    navigate("/estoque");
+    setSideBar(false);
+  };
+
+  const handleSignUp = () => {
+    navigate("/cadastrar");
     setSideBar(false);
   };
 
@@ -83,16 +93,14 @@ export const Header = () => {
             {[USER_ROLE.COMMON, USER_ROLE.ADMIN].includes(user.role) && (
               <>
                 <SideBarItem onClick={handleProductsPage}>Produtos</SideBarItem>
-                <SideBarItem onClick={handleFavoriteList}>
-                  Relatorios
-                </SideBarItem>
+                <SideBarItem onClick={handleRelatory}>Relatorios</SideBarItem>
               </>
             )}
             {[USER_ROLE.ADMIN].includes(user.role) && (
               <>
-                <SideBarItem onClick={handleNewDish}>Estoque</SideBarItem>
-                <SideBarItem onClick={handleNewDish}>Vendas</SideBarItem>
-                <SideBarItem onClick={handleNewDish}>
+                <SideBarItem onClick={handleStock}>Estoque</SideBarItem>
+                <SideBarItem onClick={handleSales}>Vendas</SideBarItem>
+                <SideBarItem onClick={handleSignUp}>
                   Cadastrar Funcionario
                 </SideBarItem>
               </>

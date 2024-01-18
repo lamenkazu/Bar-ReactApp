@@ -40,11 +40,11 @@ export const GlobalStyles = createGlobalStyle`
         overflow-x: hidden;
     }
 
-    body, input, button, textarea, p{
+    body, input, label, select, button, textarea, p{
         font-family: 'Poppins', sans-serif;
     }
 
-    label, input, textarea, h3{
+    textarea, h3, li{
         font-family: "Roboto", sans-serif;
     }
 

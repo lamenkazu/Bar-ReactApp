@@ -35,7 +35,7 @@ export const Container = styled.button<ContraProps>`
 
   &:disabled {
     opacity: 0.8;
-    background-color: ${({ theme }) => theme.ORANGE_DISABLED};
+    background-color: ${({ theme }) => theme.BROWN_DISABLED};
 
     > p {
       color: ${({ theme }) => theme.BACKGROUND_2};

@@ -1,213 +1,68 @@
-import { useState } from "react";
-import {
-  Container,
-  OpenSales,
-  SaleOrder,
-  SearchWrapper,
-  Search,
-  FilterWrapper,
-  InputWrapper,
-  Products,
-  Command,
-  ProductsWrapper,
-  ProductSection,
-  Payment,
-  TotalPrice,
-  ButtonWrapper,
-  CustomSelect,
-  DropdownButton,
-  IconWrapper,
-  Option,
-  OptionsList,
-} from "./styles";
+import { useEffect, useState } from "react";
+import { useSales } from "../../hooks/sales";
 
-import { Button } from "../../components/Button";
-import { Empty } from "../../components/Empty";
+import { Order } from "../../@types/sales";
+
+import { Container, OpenSales, OrderHead } from "./styles";
+import { SaleOrder } from "../../components/SaleOrder";
 
 import { CiBookmarkPlus } from "react-icons/ci";
-import { PiMagnifyingGlassThin } from "react-icons/pi";
-import { SiPix } from "react-icons/si";
-import { MdKeyboardArrowRight } from "react-icons/md";
-
-import { drinkOptions, SelectOption } from "../../utils/categoryOptions";
-import { AiOutlineCreditCard, AiOutlineDollar } from "react-icons/ai";
-import { Stepper } from "../../components/Stepper";
-import { ProductCard } from "../../components/ProductCard";
 
 export const Sales = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selectedOption, setSelectedOption] = useState<string>("");
+  const { getOpenOrders, getOrderById, createOrder } = useSales();
+  const [openOrders, setOpenOrders] = useState<Order[]>();
+  const [openIndex, setOpenIndex] = useState<number>(-1);
+  const [openOrderData, setOpenOrderData] = useState<Order>({} as Order);
 
-  const handleOptionClick = (option: string) => {
-    setSelectedOption(option);
-    setIsOpen(false);
+  const [firstTime, setFirstTime] = useState(true); //Verifica se é o primeiro load da pagina
+
+  const handleOrderHeadClick = (index: number, orderId: string) => {
+    setOpenIndex(index);
+
+    const fetchOpenOrderData = async () => {
+      setOpenOrderData(await getOrderById(orderId));
+    };
+
+    fetchOpenOrderData();
   };
+
+  const handleCreateOrder = async () => {
+    await createOrder({
+      products: [],
+      total: 0,
+    });
+  };
+
+  useEffect(() => {
+    const fetchOpenSales = async () => {
+      setOpenOrders(await getOpenOrders());
+      if (openOrders && firstTime) {
+        handleOrderHeadClick(0, openOrders[0].id);
+        setFirstTime(false);
+      }
+    };
+
+    fetchOpenSales();
+  }, [openOrders]);
 
   return (
     <Container>
-      <ProductSection>
-        <SearchWrapper>
-          <Search>
-            <PiMagnifyingGlassThin />
-            <label className="srOnly" htmlFor="search">
-              Pesquisar Produto
-            </label>
-            <input type="text" name="search" id="search" />
-          </Search>
-
-          <FilterWrapper>
-            <InputWrapper>
-              <input
-                type="radio"
-                name="productGroup"
-                id="productName"
-                checked
-              />
-              <label htmlFor="productName">Pesquisar por nome</label>
-            </InputWrapper>
-
-            <select>
-              {drinkOptions.map((option: SelectOption) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-
-            <InputWrapper>
-              <input type="radio" name="productGroup" id="productPrice" />
-              <label htmlFor="productPrice">Pesquisar por preço</label>
-            </InputWrapper>
-          </FilterWrapper>
-        </SearchWrapper>
-
-        <Products>
-          <ul>
-            <li>
-              Brahma Latão <Button title="Incluir" />
-            </li>
-          </ul>
-        </Products>
-      </ProductSection>
-
-      <Command>
-        <ProductsWrapper>
-          <h1>Comanda</h1>
-          <Products>
-            <ul>
-              <li>
-                Brahma Latão <Stepper />
-              </li>
-              <li>
-                Heineken 600 ml <Stepper />
-              </li>
-              <li>
-                Heineken 330 ml <Stepper />
-              </li>
-              <li>
-                Guaraná Antartica lata 350 ml <Stepper />
-              </li>
-              <li>
-                Lucky Strike Vermelho maço <Stepper />
-              </li>
-            </ul>
-          </Products>
-        </ProductsWrapper>
-
-        <Payment>
-          <TotalPrice>R$ 00,00</TotalPrice>
-
-          <CustomSelect>
-            <DropdownButton onClick={() => setIsOpen(!isOpen)}>
-              {selectedOption === "" && (
-                <IconWrapper>
-                  Pagamento
-                  <MdKeyboardArrowRight size={24} />
-                </IconWrapper>
-              )}
-
-              {selectedOption === "Pix" && (
-                <IconWrapper>
-                  <SiPix size={24} />
-                  <MdKeyboardArrowRight size={24} />
-                </IconWrapper>
-              )}
-              {selectedOption === "Dinheiro" && (
-                <IconWrapper>
-                  <AiOutlineDollar size={24} />
-                  <MdKeyboardArrowRight size={24} />
-                </IconWrapper>
-              )}
-              {selectedOption === "Cartão Débito" && (
-                <IconWrapper>
-                  <AiOutlineCreditCard size={24} />
-                  Débito
-                  <MdKeyboardArrowRight size={24} />
-                </IconWrapper>
-              )}
-              {selectedOption === "Cartão Crédito" && (
-                <IconWrapper>
-                  <AiOutlineCreditCard size={24} />
-                  Crédito
-                  <MdKeyboardArrowRight size={24} />
-                </IconWrapper>
-              )}
-            </DropdownButton>
-            <OptionsList isOpen={isOpen}>
-              <Option onClick={() => handleOptionClick("Pix")}>
-                <IconWrapper>
-                  <SiPix size={24} />
-                </IconWrapper>
-                Pix
-              </Option>
-              <Option onClick={() => handleOptionClick("Dinheiro")}>
-                <IconWrapper>
-                  <AiOutlineDollar size={24} />
-                </IconWrapper>
-                Dinheiro
-              </Option>
-              <Option onClick={() => handleOptionClick("Cartão Débito")}>
-                <IconWrapper>
-                  <AiOutlineCreditCard size={24} />
-                </IconWrapper>
-                Cartão Débito
-              </Option>
-              <Option onClick={() => handleOptionClick("Cartão Crédito")}>
-                <IconWrapper>
-                  <AiOutlineCreditCard size={24} />
-                </IconWrapper>
-                Cartão Crédito
-              </Option>
-              <Option onClick={() => handleOptionClick("")}>Selecionar</Option>
-            </OptionsList>
-          </CustomSelect>
-        </Payment>
-
-        <ButtonWrapper>
-          <Button title="Salvar" />
-          <Empty />
-          <Button title="Finalizar" contra />
-        </ButtonWrapper>
-      </Command>
+      {openIndex !== -1 && <SaleOrder data={openOrderData} />}
 
       <OpenSales>
-        <SaleOrder>
-          <p>Venda 1</p>
-        </SaleOrder>
+        {openOrders?.map((order: Order, index) => (
+          <OrderHead
+            key={order.id}
+            open={index === openIndex}
+            onClick={() => {
+              handleOrderHeadClick(index, order.id);
+            }}
+          >
+            <p> {order.id} </p>
+          </OrderHead>
+        ))}
 
-        <SaleOrder>
-          <p>Venda 2</p>
-        </SaleOrder>
-
-        <SaleOrder open>
-          <p>Venda 3</p>
-        </SaleOrder>
-
-        <SaleOrder>
-          <p>Venda 4</p>
-        </SaleOrder>
-
-        <CiBookmarkPlus size={32} />
+        <CiBookmarkPlus size={32} onClick={handleCreateOrder} />
       </OpenSales>
     </Container>
   );

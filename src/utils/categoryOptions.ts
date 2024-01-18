@@ -4,7 +4,7 @@ export interface SelectOption {
 }
 
 export const drinkOptions: SelectOption[] = [
-  { value: "", label: "Selecionar" },
+  { value: "", label: "Categorias" },
   { value: "Dose", label: "Dose" },
   { value: "Cerveja", label: "Cerveja" },
   { value: "Cigarro", label: "Cigarro" },

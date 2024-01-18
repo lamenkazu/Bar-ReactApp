@@ -12,6 +12,7 @@ import { useAuth } from "./auth";
 import { api } from "./../services/api";
 import {
   NewProduct,
+  ProductIndexSearch,
   ProductListProps,
   ProductsContextData,
 } from "../@types/products";
@@ -98,25 +99,30 @@ const ProductsProvider = ({ children }: PropsWithChildren) => {
     }
   }, [loading]);
 
-  const getProducts = useCallback(async () => {
-    try {
-      if (loading) return;
+  const getProducts = useCallback(
+    async ({ name, category }: ProductIndexSearch) => {
+      try {
+        if (loading) return;
 
-      const response = await api.get("/products?name&category");
+        const response = await api.get(
+          `/products?name=${name}&category=${category}`
+        );
 
-      const data: ProductListProps = response.data;
+        const data: ProductListProps = response.data;
 
-      return data;
-    } catch (err: any) {
-      if (err.response) {
-        alert(`${err.response.status} ${err.response.data.message}`);
-      } else {
-        console.log(err);
+        return data;
+      } catch (err: any) {
+        if (err.response) {
+          alert(`${err.response.status} ${err.response.data.message}`);
+        } else {
+          console.log(err);
 
-        alert("Não foi possível pegar os produtos do banco de dados.");
+          alert("Não foi possível pegar os produtos do banco de dados.");
+        }
       }
-    }
-  }, []);
+    },
+    []
+  );
 
   const getProductsByCategory = useCallback(async (category: string) => {
     try {

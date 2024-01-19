@@ -44,7 +44,7 @@ export const GlobalStyles = createGlobalStyle`
         font-family: 'Poppins', sans-serif;
     }
 
-    textarea, h3, li{
+    textarea, li, h1{
         font-family: "Roboto", sans-serif;
     }
 

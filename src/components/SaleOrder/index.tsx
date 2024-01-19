@@ -16,8 +16,8 @@ import {
   SearchWrapper,
   Search,
   FilterWrapper,
-  InputWrapper,
   Products,
+  Title,
   Command,
   ProductsWrapper,
   ProductSection,
@@ -57,6 +57,7 @@ export const SaleOrder = ({ data }: SaleOrderProps) => {
   const [order, setOrder] = useState<Order>({
     created_by: "",
     id: "",
+    to: "",
     method: "",
     products: [],
     total: 0,
@@ -85,10 +86,14 @@ export const SaleOrder = ({ data }: SaleOrderProps) => {
     });
   };
 
-  const handleFormChanges = (
+  const handleSearchChanges = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     setSearch({ ...search, [e.target.name]: e.target.value });
+  };
+
+  const handleFormChanges = (e: ChangeEvent<HTMLInputElement>) => {
+    setOrder({ ...order, [e.target.name]: e.target.value });
   };
 
   const handleSaveOrder = async () => {
@@ -153,25 +158,14 @@ export const SaleOrder = ({ data }: SaleOrderProps) => {
               name="name"
               id="search"
               value={search.name}
-              onChange={handleFormChanges}
+              onChange={handleSearchChanges}
             />
           </Search>
 
           <FilterWrapper>
-            <InputWrapper>
-              <input
-                type="radio"
-                name="productGroup"
-                id="productName"
-                checked
-                onChange={() => {}}
-              />
-              <label htmlFor="productName">Pesquisar por nome</label>
-            </InputWrapper>
-
             <select
               name="category"
-              onChange={handleFormChanges}
+              onChange={handleSearchChanges}
               value={search.category}
             >
               {drinkOptions.map((option: SelectOption) => (
@@ -180,19 +174,10 @@ export const SaleOrder = ({ data }: SaleOrderProps) => {
                 </option>
               ))}
             </select>
-            {/* 
-            <InputWrapper>
-              <input
-                type="radio"
-                name="productGroup"
-                id="productPrice"
-                disabled
-              />
-              <label htmlFor="productPrice">Pesquisar por preço</label>
-            </InputWrapper> */}
           </FilterWrapper>
         </SearchWrapper>
 
+        <p>Produtos Disponíveis</p>
         <Products>
           <ul>
             {productsData?.products
@@ -204,7 +189,8 @@ export const SaleOrder = ({ data }: SaleOrderProps) => {
               )
               .map((product: ProductProps) => (
                 <li key={`${product.id}`}>
-                  {product.name}
+                  {product.name} <br />
+                  <span>R${product.price}</span>
                   <Button
                     title="Incluir"
                     onClick={() => {
@@ -219,7 +205,16 @@ export const SaleOrder = ({ data }: SaleOrderProps) => {
 
       <Command>
         <ProductsWrapper>
-          <h1>Comanda</h1>
+          <Title>
+            <h1>Comanda de </h1>
+            <input
+              type="text"
+              name="to"
+              id="to"
+              value={order.to}
+              onChange={handleFormChanges}
+            />
+          </Title>
           <Products>
             <ul>
               {order.products?.map((product, index) => (
@@ -250,7 +245,7 @@ export const SaleOrder = ({ data }: SaleOrderProps) => {
           <Button
             title="Finalizar"
             contra
-            loading={selectedOption === ""}
+            loading={selectedOption === "" || order.products?.length === 0}
             onClick={handleFinalizeOrder}
           />
         </ButtonWrapper>

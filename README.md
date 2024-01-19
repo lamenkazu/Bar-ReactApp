@@ -2,7 +2,7 @@
 
 - [x] Tela de Login
 
-- [ ] Tela Principal
+- [x] Tela Principal
   - [x] Menu Lateral
     - [x] Opção Estoque
     - [x] Opção Vendas
@@ -30,8 +30,8 @@
 
 ## Pedidos de Venda
 
-- [ ] Detalhes de um pedido de venda específico
-- [ ] Atualizar um pedido de venda específico
+- [x] Detalhes de um pedido de venda específico
+- [x] Atualizar um pedido de venda específico
 
 - [ ] Admin
   - [ ] Listar todos os pedidos de vendas
@@ -39,5 +39,5 @@
 
 # Componente Essencial
 
-- [ ] Novo Pedido de Venda
-- [ ] Listar todos os pedidos de venda abertos
+- [x] Novo Pedido de Venda
+- [x] Listar todos os pedidos de venda abertos

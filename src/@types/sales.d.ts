@@ -7,6 +7,7 @@ interface ProductInOrder {
 
 export interface Order {
   id: string;
+  to: string;
   products: ProductInOrder[];
   total: number;
   method: string;

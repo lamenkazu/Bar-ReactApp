@@ -15,7 +15,7 @@ export const Container = styled.button<ContraProps>`
   > p {
     font-size: 1.4rem;
     font-style: normal;
-    font-weight: 500;
+    font-weight: bold;
     line-height: 24px; /* 171.429% */
 
     color: ${({ theme, $contra }) => ($contra ? theme.LIGHT_100 : theme.BLACK)};

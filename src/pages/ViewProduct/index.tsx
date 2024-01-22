@@ -10,6 +10,7 @@ import { GoBack } from "../../components/GoBack";
 import { PiCaretLeft } from "react-icons/pi";
 import { ProductProps } from "../../@types/products";
 import { USER_ROLE } from "../../utils/roles";
+import { formatter } from "../../utils/moneyFormatter";
 
 export const ViewProduct = () => {
   const navigate = useNavigate();
@@ -53,11 +54,17 @@ export const ViewProduct = () => {
 
             <p>{data.category}</p>
 
-            <span> R$ {data.price}</span>
+            <span>{formatter.format(Number(data.price))}</span>
 
             <UsersInfo>
-              <p>Criado por: {data.created_by} </p>
-              <p>Atualizado por: {data.updated_by} </p>
+              <p>
+                <strong>Criado por: </strong>
+                {data.created_by}
+              </p>
+              <p>
+                <strong>Atualizado por: </strong>
+                {data.updated_by}
+              </p>
             </UsersInfo>
           </ContentDetails>
 

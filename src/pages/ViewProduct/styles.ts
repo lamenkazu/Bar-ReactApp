@@ -17,6 +17,10 @@ export const Container = styled.main`
     background-color: ${({ theme }) => theme.BACKGROUND_2};
     border-radius: 0.8rem;
 
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
     > div {
       display: flex;
       flex-direction: column;
@@ -35,12 +39,12 @@ export const ContentDetails = styled.section`
 
   > h1 {
     font-style: normal;
-    font-weight: 500;
+    font-weight: bold;
     line-height: 140%; /* 37.858px */
 
     font-size: 4rem;
 
-    color: ${({ theme }) => theme.BLACK};
+    color: ${({ theme }) => theme.BLUE};
   }
 
   > p {
@@ -50,13 +54,14 @@ export const ContentDetails = styled.section`
 
     font-size: 1.8rem;
 
-    color: ${({ theme }) => theme.TOMATO};
-    font-weight: bold;
+    color: ${({ theme }) => theme.DARK_400};
+    font-weight: 500;
   }
 
   > span {
-    color: ${({ theme }) => theme.BROWN};
+    color: ${({ theme }) => theme.TOMATO};
     font-size: 4rem;
+    font-weight: bold;
   }
 `;
 

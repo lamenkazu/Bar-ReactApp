@@ -34,13 +34,16 @@ export const ListProducts = () => {
   return (
     <Container>
       {[USER_ROLE.ADMIN].includes(user.role) && (
-        <ButtonWrapper>
-          <Button
-            title="Novo Produto"
-            icon={FaPlus}
-            onClick={goToNewProductPage}
-          />
-        </ButtonWrapper>
+        <div>
+          <h1>Lista de produtos</h1>
+          <ButtonWrapper>
+            <Button
+              title="Novo Produto"
+              icon={FaPlus}
+              onClick={goToNewProductPage}
+            />
+          </ButtonWrapper>
+        </div>
       )}
 
       {categories?.map((category, index) => (

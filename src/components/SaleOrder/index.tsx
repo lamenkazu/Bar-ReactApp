@@ -36,6 +36,7 @@ import { PiMagnifyingGlassThin } from "react-icons/pi";
 import { drinkOptions, SelectOption } from "../../utils/categoryOptions";
 import { useSales } from "../../hooks/sales";
 import { useNavigate } from "react-router-dom";
+import { formatter } from "../../utils/moneyFormatter";
 
 interface SaleOrderProps {
   data: Order;
@@ -190,7 +191,7 @@ export const SaleOrder = ({ data }: SaleOrderProps) => {
               .map((product: ProductProps) => (
                 <li key={`${product.id}`}>
                   {product.name} <br />
-                  <span>R${product.price}</span>
+                  <span>{formatter.format(Number(product.price))}</span>
                   <Button
                     title="Incluir"
                     onClick={() => {
@@ -232,7 +233,7 @@ export const SaleOrder = ({ data }: SaleOrderProps) => {
         </ProductsWrapper>
 
         <Payment>
-          <TotalPrice>R$ {order.total}</TotalPrice>
+          <TotalPrice>{formatter.format(order.total)}</TotalPrice>
           <PayMethodSelect
             selectedOption={selectedOption}
             setSelectedOption={setSelectedOption}

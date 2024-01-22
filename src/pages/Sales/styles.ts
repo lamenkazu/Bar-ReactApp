@@ -45,8 +45,7 @@ export const OrderHead = styled.div<OpenProps>`
       ? "none"
       : "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset"};
 
-  background-color: ${({ theme, open }) =>
-    open ? theme.LIGHT_1000 : theme.LIGHT_700};
+  background-color: ${({ theme, open }) => (open ? "none" : theme.LIGHT_700)};
 
   font-weight: bold;
   color: ${({ theme }) => theme.DARK_100};

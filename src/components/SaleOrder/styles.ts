@@ -10,6 +10,8 @@ export const ProductSection = styled.section`
   display: flex;
   flex-direction: column;
   min-width: 60dvw;
+  max-width: 60dvw;
+
   > div {
     border: none;
     height: 50dvh;
@@ -153,9 +155,11 @@ export const Products = styled.div`
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 
   width: 90%;
+
   height: 31dvh;
   overflow-y: scroll;
   background-color: ${({ theme }) => theme.LIGHT_300};
+  padding: 0.08rem;
 
   > ul {
     display: flex;
@@ -177,8 +181,9 @@ export const Products = styled.div`
       max-width: 19rem;
 
       box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-        rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+        rgba(6, 24, 44, 0.65) 0px 2px 6px -1px,
         rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+
       padding: 0.3rem;
       border-radius: 0.8rem;
 

@@ -11,12 +11,12 @@ export const Container = styled.section`
     align-self: start;
 
     font-family: Poppins;
-    font-size: 3rem;
+    font-size: 2rem;
     line-height: 140%; /* 25.2px */
 
     color: ${({ theme }) => theme.BLUE};
 
-    margin-bottom: 1rem;
+    margin: 2rem 0;
   }
 `;
 

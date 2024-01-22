@@ -11,9 +11,8 @@ export const Container = styled.div`
   padding-left: 11.4rem;
 
   > p {
-    color: ${({ theme }) => theme.BLUE};
     font-style: normal;
-    font-weight: 500;
+    font-weight: bold;
     line-height: 140%; /* 33.6px */
 
     @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {

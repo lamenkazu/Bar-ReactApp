@@ -8,12 +8,16 @@ import { EditProduct } from "../pages/EditProduct";
 import { ListProducts } from "../pages/ListProducts";
 import { ViewProduct } from "../pages/ViewProduct";
 import { Sales } from "../pages/Sales";
+import { SignUp } from "../pages/SignUp";
 
 export function AdminRoutes() {
   return (
     <Routes>
       <Route path="/" element={<AppLayout />}>
         <Route path="/" element={<Navigate to="/vendas" replace />} />
+
+        {/* Auth */}
+        <Route path="/cadastrar" element={<SignUp />} />
 
         {/* Products */}
         <Route path="/produtos" element={<ListProducts />} />

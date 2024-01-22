@@ -83,6 +83,7 @@ const SalesProvider = ({ children }: PropsWithChildren) => {
       await api.put(`/sales/${updatedOrder.id}`, {
         products: updatedOrder.products,
         total: updatedOrder.total,
+        to: updatedOrder.to,
       });
     } catch (err: any) {
       if (err.response) {

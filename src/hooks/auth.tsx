@@ -25,13 +25,14 @@ const emptyUser: UserProps = {
   cpf: "",
   password: "",
   role: "",
+  gender: "",
   createdAt: "",
   updatedAt: "",
 };
 
 const AuthProvider = ({ children }: PropsWithChildren) => {
-  const [data, setData] = useState<UserProps>(emptyUser);
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState<UserProps>(emptyUser);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const signIn = useCallback(async ({ cpf, password }: SignInProps) => {
     try {
@@ -40,7 +41,7 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
 
       localStorage.setItem("@bar-valadares:user", JSON.stringify(user));
 
-      setData(user);
+      setUser(user);
       setLoading(false);
     } catch (err: any) {
       if (err.response) {
@@ -51,32 +52,35 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
     }
   }, []);
 
-  const signUp = useCallback(({ name, cpf, password, role }: SignUpProps) => {
-    api
-      .post("/users/admin", { name, cpf, password, role })
-      .then(() => {
-        alert("Registro realizado com sucesso!");
-      })
-      .catch((err) => {
-        if (err.response) {
-          alert(err.response.data.message);
-        } else {
-          alert("Não foi possível realizar o registro.");
-        }
-      });
-  }, []);
+  const signUp = useCallback(
+    ({ name, cpf, password, role, gender }: SignUpProps) => {
+      api
+        .post("/users/admin", { name, cpf, password, role, gender })
+        .then(() => {
+          alert("Registro realizado com sucesso!");
+        })
+        .catch((err) => {
+          if (err.response) {
+            alert(err.response.data.message);
+          } else {
+            alert("Não foi possível realizar o registro.");
+          }
+        });
+    },
+    []
+  );
 
   const signOut = useCallback(() => {
     localStorage.removeItem("@bar-valadares:user");
 
-    setData(emptyUser);
+    setUser(emptyUser);
   }, []);
 
   useEffect(() => {
     const user = localStorage.getItem("@bar-valadares:user");
 
     if (user) {
-      setData(JSON.parse(user));
+      setUser(JSON.parse(user));
     }
     setLoading(false);
   }, []);
@@ -86,9 +90,9 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
       signIn,
       signUp,
       signOut,
-      user: data,
+      user,
     }),
-    [signIn, signUp, signOut, data, loading]
+    [signIn, signUp, signOut, user, loading]
   );
 
   return (

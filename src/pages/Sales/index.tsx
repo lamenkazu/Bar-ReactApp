@@ -58,7 +58,7 @@ export const Sales = () => {
               handleOrderHeadClick(index, order.id);
             }}
           >
-            <p> {order.to !== "" ? order.id : order.to} </p>
+            <p> {order.to === "" ? order.id : order.to} </p>
           </OrderHead>
         ))}
 

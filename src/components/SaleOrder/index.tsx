@@ -212,7 +212,7 @@ export const SaleOrder = ({ data }: SaleOrderProps) => {
               type="text"
               name="to"
               id="to"
-              value={order.to}
+              value={order.to ? order.to : ""}
               onChange={handleFormChanges}
             />
           </Title>

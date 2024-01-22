@@ -8,6 +8,7 @@ export interface SignUpProps {
   cpf: string;
   password: string;
   role: string;
+  gender: string;
 }
 
 export interface UserProps {
@@ -16,6 +17,7 @@ export interface UserProps {
   cpf: string;
   password: string;
   role: string;
+  gender: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -25,5 +27,4 @@ interface AuthContextData {
   signUp: (credentials: SignUpProps) => void;
   signOut: () => void;
   user: UserProps;
-  loading: boolean;
 }

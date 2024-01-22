@@ -7,9 +7,10 @@ import { Container, OpenSales, OrderHead } from "./styles";
 import { SaleOrder } from "../../components/SaleOrder";
 
 import { CiBookmarkPlus } from "react-icons/ci";
+import { IoIosClose } from "react-icons/io";
 
 export const Sales = () => {
-  const { getOpenOrders, getOrderById, createOrder } = useSales();
+  const { getOpenOrders, getOrderById, createOrder, deleteOrder } = useSales();
   const [openOrders, setOpenOrders] = useState<Order[]>();
   const [openIndex, setOpenIndex] = useState<number>(-1);
   const [openOrderData, setOpenOrderData] = useState<Order>({} as Order);
@@ -31,6 +32,13 @@ export const Sales = () => {
       products: [],
       total: 0,
     });
+  };
+
+  const handleFinishOpenOrder = async () => {
+    if (confirm("Tem certeza que deseja apagar esse pedido de venda?")) {
+      await deleteOrder(openOrderData.id);
+      setFirstTime(true);
+    }
   };
 
   useEffect(() => {
@@ -58,7 +66,8 @@ export const Sales = () => {
               handleOrderHeadClick(index, order.id);
             }}
           >
-            <p> {order.to === "" ? order.id : order.to} </p>
+            <p>{order.to === "" ? order.id : order.to}</p>
+            <IoIosClose size={32} onClick={handleFinishOpenOrder} />
           </OrderHead>
         ))}
 

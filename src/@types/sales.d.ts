@@ -31,4 +31,5 @@ export interface SalesContextData {
   createOrder: (credentials: NewOrder) => Promise<void>;
   updateOrder: (credentials: Order) => Prmise<void>;
   finalizeOrder: (credentials: FinalizedOrder) => Promise<void>;
+  deleteOrder: (credentials: string) => Promise<void>;
 }

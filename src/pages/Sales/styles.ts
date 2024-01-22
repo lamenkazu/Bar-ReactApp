@@ -28,6 +28,26 @@ export const OpenSales = styled.section`
 `;
 
 export const OrderHead = styled.div<OpenProps>`
+  display: flex;
+  align-items: center;
+
+  > p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    width: 100%;
+  }
+
+  > svg {
+    color: ${({ theme }) => theme.TOMATO};
+    transition: all 300ms ease-in-out;
+
+    &:hover {
+      scale: 1.4;
+    }
+  }
+
   width: 15rem;
   height: 100%;
   padding-inline: 0.5rem;

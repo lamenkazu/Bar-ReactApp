@@ -116,6 +116,22 @@ const SalesProvider = ({ children }: PropsWithChildren) => {
     }
   }, []);
 
+  const deleteOrder = useCallback(async (id: string) => {
+    try {
+      if (loading) return;
+
+      await api.delete(`/sales/${id}`);
+    } catch (err: any) {
+      if (err.response) {
+        alert(`${err.response.status} ${err.response.data.message}`);
+      } else {
+        console.log(err);
+
+        alert("Não foi possivel deletar o pedido de venda.");
+      }
+    }
+  }, []);
+
   const salesDataValue = useMemo(
     () => ({
       getOpenOrders,
@@ -123,8 +139,16 @@ const SalesProvider = ({ children }: PropsWithChildren) => {
       createOrder,
       updateOrder,
       finalizeOrder,
+      deleteOrder,
     }),
-    [getOpenOrders, getOrderById, createOrder, updateOrder, finalizeOrder]
+    [
+      getOpenOrders,
+      getOrderById,
+      createOrder,
+      updateOrder,
+      finalizeOrder,
+      deleteOrder,
+    ]
   );
 
   return (

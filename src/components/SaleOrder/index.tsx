@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useProducts } from "../../hooks/producst";
 
 import {
@@ -64,6 +64,14 @@ export const SaleOrder = ({ data }: SaleOrderProps) => {
     total: 0,
     updated_by: "",
   } as Order);
+
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleInputSelect = () => {
+    if (inputRef.current) {
+      inputRef.current.select();
+    }
+  };
 
   const handleIncludeProduct = (product: ProductProps) => {
     setOrder((prevState) => {
@@ -212,8 +220,10 @@ export const SaleOrder = ({ data }: SaleOrderProps) => {
               type="text"
               name="to"
               id="to"
-              value={order.to ? order.to : ""}
+              value={order.to === "" ? order.id : order.to}
               onChange={handleFormChanges}
+              onClick={handleInputSelect}
+              ref={inputRef}
             />
           </Title>
           <Products>

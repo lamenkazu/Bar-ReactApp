@@ -46,7 +46,7 @@ export const ProductForm = ({
   const { createNewProduct, deleteProduct } = useProducts();
 
   const [form, setForm] = useState<ProductProps>(productData);
-  const { id, name, price, category, created_by, updated_by } = form;
+  const { id, name, price, category } = form;
 
   const isFormEmpty = () => {
     return !name || !category || !price;
@@ -150,17 +150,17 @@ export const ProductForm = ({
           />
         </DivisoryTwo>
         {
-          //TextareaWrapper -> Input da descrição do prato
+          //TextareaWrapper -> Input da descrição do produto
         }
 
         {
-          //Botão para salvar prato no banco de dados
+          //Botão para salvar produto no banco de dados
         }
         <ButtonsWrapper>
           {!isNew && (
             <StyledButton
               contra
-              title="Excluir prato"
+              title="Excluir produto"
               onClick={handleDeleteProduct}
             />
           )}

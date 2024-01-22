@@ -91,7 +91,7 @@ export const SelectWrapper = styled.div`
 
 export const ButtonsWrapper = styled.section`
   display: flex;
-  gap: 3.2rem;
+  gap: 1rem;
   justify-content: space-between;
 
   > button {

@@ -4,22 +4,16 @@ import { useAuth } from "../../hooks/auth";
 
 import {
   Container,
-  Recipe,
-  Count,
   Menu,
   SideBar,
   Title,
   Content,
   SideBarItem,
   SignOut,
-  StyledButton,
-  Btn,
   StyledLink,
-  Empty,
-  TextButton,
 } from "./styles";
 
-import { IoMenu, IoCloseOutline } from "react-icons/io5";
+import { IoMenu } from "react-icons/io5";
 // import { PiReceiptLight, PiMagnifyingGlassThin } from "react-icons/pi";
 import { GoSignOut } from "react-icons/go";
 import { USER_ROLE } from "./../../utils/roles";

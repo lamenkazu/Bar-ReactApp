@@ -69,7 +69,7 @@ export const ViewProduct = () => {
           </ContentDetails>
 
           {[USER_ROLE.ADMIN].includes(user.role) && (
-            <StyledButton title={`Editar Prato`} onClick={goToEditPage} />
+            <StyledButton title={`Editar Produto`} onClick={goToEditPage} />
           )}
         </div>
       </section>

@@ -13,7 +13,15 @@ export const Sales = () => {
   const { getOpenOrders, getOrderById, createOrder, deleteOrder } = useSales();
   const [openOrders, setOpenOrders] = useState<Order[]>();
   const [openIndex, setOpenIndex] = useState<number>(-1);
-  const [openOrderData, setOpenOrderData] = useState<Order>({} as Order);
+  const [openOrderData, setOpenOrderData] = useState<Order>({
+    id: "",
+    to: "",
+    products: [],
+    total: 0,
+    method: "",
+    created_by: "",
+    updated_by: "",
+  } as Order);
 
   const [firstTime, setFirstTime] = useState(true); //Verifica se é o primeiro load da pagina
 
@@ -44,7 +52,7 @@ export const Sales = () => {
   useEffect(() => {
     const fetchOpenSales = async () => {
       setOpenOrders(await getOpenOrders());
-      if (openOrders && firstTime) {
+      if (openOrders && openOrders.length > 0 && firstTime) {
         handleOrderHeadClick(0, openOrders[0].id);
         setFirstTime(false);
       }

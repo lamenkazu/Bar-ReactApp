@@ -119,19 +119,25 @@ export const SaleOrder = ({ data }: SaleOrderProps) => {
   };
 
   const handleFinalizeOrder = async () => {
-    await finalizeOrder({ method: selectedOption, id: order.id }).then(() => {
-      toast("Venda finalizada", {
-        position: "bottom-right", // Posição do toast
-        autoClose: 2000, // Tempo em milissegundos para fechar automaticamente
-        hideProgressBar: false, // Ocultar a barra de progresso
-        closeOnClick: true, // Fechar o toast ao clicar nele
-        pauseOnHover: true, // Pausar fechamento ao passar o mouse
-        draggable: true, // Permitir arrastar o toast
-      });
-      setTimeout(() => {
-        navigate("/");
-      }, 2500);
-    });
+    await handleSaveOrder();
+
+    await finalizeOrder({ method: selectedOption, id: order.id }).then(
+      (res) => {
+        if (res !== false) {
+          toast("Venda finalizada", {
+            position: "bottom-right", // Posição do toast
+            autoClose: 2000, // Tempo em milissegundos para fechar automaticamente
+            hideProgressBar: false, // Ocultar a barra de progresso
+            closeOnClick: true, // Fechar o toast ao clicar nele
+            pauseOnHover: true, // Pausar fechamento ao passar o mouse
+            draggable: true, // Permitir arrastar o toast
+          });
+          setTimeout(() => {
+            navigate("/");
+          }, 2500);
+        }
+      }
+    );
   };
 
   useEffect(() => {

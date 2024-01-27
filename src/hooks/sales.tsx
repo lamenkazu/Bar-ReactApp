@@ -102,12 +102,13 @@ const SalesProvider = ({ children }: PropsWithChildren) => {
 
       const { id, method } = finalizeOrder;
 
-      await api.patch(`/sales/${id}`, {
+      return await api.patch(`/sales/${id}`, {
         method,
       });
     } catch (err: any) {
       if (err.response) {
         alert(`${err.response.status} ${err.response.data.message}`);
+        return false;
       } else {
         console.log(err);
 

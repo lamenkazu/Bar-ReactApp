@@ -10,6 +10,10 @@ export const Container = styled.div`
   left: 0;
   padding-left: 11.4rem;
 
+  &:hover {
+    color: ${({ theme }) => theme.DARK_500};
+  }
+
   > p {
     font-style: normal;
     font-weight: bold;

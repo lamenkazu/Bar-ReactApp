@@ -14,7 +14,6 @@ import {
 } from "./styles";
 
 import { IoMenu } from "react-icons/io5";
-// import { PiReceiptLight, PiMagnifyingGlassThin } from "react-icons/pi";
 import { GoSignOut } from "react-icons/go";
 import { USER_ROLE } from "./../../utils/roles";
 
@@ -46,11 +45,6 @@ export const Header = () => {
 
   const handleRelatory = () => {
     navigate("/relatorios");
-    setSideBar(false);
-  };
-
-  const handleStock = () => {
-    navigate("/estoque");
     setSideBar(false);
   };
 
@@ -92,7 +86,6 @@ export const Header = () => {
             )}
             {[USER_ROLE.ADMIN].includes(user.role) && (
               <>
-                <SideBarItem onClick={handleStock}>Estoque</SideBarItem>
                 <SideBarItem onClick={handleSales}>Vendas</SideBarItem>
                 <SideBarItem onClick={handleSignUp}>
                   Cadastrar Funcionario

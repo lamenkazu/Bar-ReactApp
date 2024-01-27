@@ -56,6 +56,32 @@ export const ViewProduct = () => {
 
             <span>{formatter.format(Number(data.price))}</span>
 
+            <p>
+              <strong>Preço de Custo: </strong>
+              {formatter.format(Number(data.cost_price))}
+            </p>
+
+            <UsersInfo>
+              <p>
+                {data.quantity}
+                <strong> Em estoque:</strong>
+              </p>
+              <p>
+                {data.quantity_sold}
+                <strong> Unidades vendidas</strong>
+              </p>
+            </UsersInfo>
+
+            <UsersInfo>
+              <p>
+                <strong>Presente em:</strong> {data.total_sales} vendas
+              </p>
+              <p>
+                <strong>Lucro Liquido: </strong>
+                {formatter.format(Number(data.net_profit))}
+              </p>
+            </UsersInfo>
+
             <UsersInfo>
               <p>
                 <strong>Criado por: </strong>

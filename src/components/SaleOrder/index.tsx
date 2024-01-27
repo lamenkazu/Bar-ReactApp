@@ -119,7 +119,7 @@ export const SaleOrder = ({ data }: SaleOrderProps) => {
   };
 
   const handleFinalizeOrder = async () => {
-    await handleSaveOrder();
+    await updateOrder(order);
 
     await finalizeOrder({ method: selectedOption, id: order.id }).then(
       (res) => {

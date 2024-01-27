@@ -29,6 +29,11 @@ export interface ProductProps {
   category: string;
   created_by: string;
   updated_by: string;
+  quantity?: number;
+  cost_price?: number;
+  quantity_sold?: number;
+  total_sales?: number;
+  net_profit?: number;
 }
 
 export interface ProductListProps {

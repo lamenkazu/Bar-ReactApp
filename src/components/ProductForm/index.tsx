@@ -60,7 +60,7 @@ export const ProductForm = ({
 
   //Lida com o retorno à pagina anterior.
   const handleGoBack = () => {
-    navigate("/produtos");
+    navigate(-1);
   };
 
   const handleCreate = async () => {

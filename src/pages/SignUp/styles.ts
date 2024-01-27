@@ -44,7 +44,7 @@ export const PersonInfoWrapper = styled.div`
   gap: 4rem;
 `;
 
-export const GenderWrapper = styled.div`
+export const CheckboxWrapper = styled.div`
   width: 100%;
 
   > section {

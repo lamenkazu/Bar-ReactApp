@@ -24,7 +24,7 @@ export interface UserProps {
 
 interface AuthContextData {
   signIn: (credentials: SignInProps) => Promise<void>;
-  signUp: (credentials: SignUpProps) => void;
+  signUp: (credentials: SignUpProps) => Promise<void | AxiosResponse<any, any>>;
   signOut: () => void;
   user: UserProps;
 }

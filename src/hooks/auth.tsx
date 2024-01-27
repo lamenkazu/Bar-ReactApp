@@ -53,19 +53,16 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
   }, []);
 
   const signUp = useCallback(
-    ({ name, cpf, password, role, gender }: SignUpProps) => {
-      api
-        .post("/users/admin", { name, cpf, password, role, gender })
-        .then(() => {
-          alert("Registro realizado com sucesso!");
-        })
-        .catch((err) => {
-          if (err.response) {
-            alert(err.response.data.message);
-          } else {
-            alert("Não foi possível realizar o registro.");
-          }
-        });
+    async ({ name, cpf, password, role, gender }: SignUpProps) => {
+      const res = await api.post("/users/admin", {
+        name,
+        cpf,
+        password,
+        role,
+        gender,
+      });
+
+      return res.data;
     },
     []
   );
